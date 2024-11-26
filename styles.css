@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: "VT323", monospace;
 }
 
 #stars-canvas {
@@ -20,7 +21,7 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 48px;
-    font-family: Arial, sans-serif;
+    font-family: "VT323", monospace;
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }

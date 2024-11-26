@@ -7,7 +7,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Define the star properties
-const starCount = 100;
+const starCount = 400;
 const starSize = 2;
 const starSpeed = 0.5;
 
