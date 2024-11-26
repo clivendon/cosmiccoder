@@ -1,4 +1,9 @@
 // Get the canvas element
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -7,8 +12,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Define the star properties
-const starCount = 400;
-const starSize = 2;
+const starCount = 600;
 const starSpeed = 0.5;
 
 // Create an array to hold the star objects
@@ -19,7 +23,8 @@ function createStar() {
   const x = Math.random() * canvas.width;
   const y = Math.random() * canvas.height;
   const speed = Math.random() * starSpeed;
-  return { x, y, speed };
+  const size = getRandomArbitrary(1, 4); // random size between 1 and 4
+  return { x, y, speed, size };
 }
 
 // Initialize the stars
@@ -37,7 +42,7 @@ function animate() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Move and draw the stars
-  for (let i = 0; i < stars.length; i++) {
+  for (let i = 0; i < starCount; i++) {
     const star = stars[i];
     star.y += star.speed;
     if (star.y > canvas.height) {
@@ -46,7 +51,7 @@ function animate() {
     }
     ctx.fillStyle = 'white';
     ctx.beginPath();
-    ctx.arc(star.x, star.y, starSize, 0, Math.PI * 2);
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2); // use star.size instead of starSize
     ctx.fill();
   }
 
