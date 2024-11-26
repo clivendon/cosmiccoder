@@ -27,6 +27,45 @@ for (let i = 0; i < starCount; i++) {
   stars.push(createStar());
 }
 
+// Define the text properties
+const text = 'Cosmic Coder';
+const textSize = 64;
+const textColor = '#fff';
+const textX = canvas.width / 2;
+const textY = canvas.height / 2;
+
+// Define the bounce effect properties
+const bounceDuration = 1000;
+const bounceDelay = 200;
+const bounceEasing = 'easeInOutQuint';
+
+// Function to draw the text with bounce effect
+function drawText() {
+  ctx.font = `${textSize}px Arial`;
+  ctx.fillStyle = textColor;
+  ctx.textAlign = 'center';
+  ctx.textBaseline ='middle';
+  ctx.fillText(text, textX, textY);
+}
+
+// Bounce effect function using anime.js
+function bounceBubbles() {
+  anime({
+    targets: '.text',
+    scale: [
+      { value: 1.2, duration: bounceDuration, delay: bounceDelay, easing: bounceEasing },
+      { value: 1, duration: bounceDuration, delay: bounceDelay, easing: bounceEasing }
+    ],
+    opacity: [
+      { value: 0.5, duration: bounceDuration, delay: bounceDelay, easing: bounceEasing },
+      { value: 1, duration: bounceDuration, delay: bounceDelay, easing: bounceEasing }
+    ]
+  });
+}
+
+// Add event listener for mouseover
+canvas.addEventListener('mouseover', bounceBubbles);
+
 // Main animation loop
 function animate() {
   // Clear the canvas
@@ -49,6 +88,9 @@ function animate() {
     ctx.arc(star.x, star.y, starSize, 0, Math.PI * 2);
     ctx.fill();
   }
+
+  // Draw the text
+  drawText();
 
   // Request the next frame
   requestAnimationFrame(animate);
