@@ -41,6 +41,7 @@
     background-color: var(--primary-color);
     padding: 1vw 1vw;
     text-decoration: underline;
+    font-size: 2vw;
     z-index: 1;
   }
   
