@@ -22,7 +22,7 @@
     max-height: 100%;
     background-color: var(--primary-color);
     background-image: url('');
-    background-size: 50% 50%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     z-index: -1;
   }
